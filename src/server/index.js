@@ -32,11 +32,11 @@ app.get('/test', function (req, res) {
 
 app.post('/userText', async(req, res) => {
     console.log('req.body ===+>', req.body)
-    const res = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.formText}&lang=en`);
+    const response = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.formText}&lang=en`);
     try {
-        const data = await res.json();
-        console.log(getAnalysis, data);
-        res.send (data);
+        const data = await response.json();
+        console.log(data);
+        res.send(data);
       }catch (error) {
       console.log("error", error);
       }
