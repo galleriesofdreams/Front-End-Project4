@@ -1,11 +1,10 @@
-let projectData = {};
-
 var path = require('path');
 const express = require('express');
 const mockAPIResponse = require('./mockAPI.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const fetch = require('node-fetch');
 const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 
 dotenv.config();
@@ -17,22 +16,20 @@ app.use(bodyParser.urlencoded({
     extended: false 
 }));
 app.use(bodyParser.json());
-app.use(express.static('dist'))
+app.use(express.static('dist'));
 
 const port = 8081;
-// designates what port the app will listen to for incoming requests
 const server = app.listen(port, () => {
     console.log(`running on localhost: ${port}`);
-})
+});
 
 app.get('/', function (req, res) {
-    // res.sendFile('dist/index.html')
     res.sendFile(path.resolve('dist/index.html'))
-})
+});
 
 app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
-})
+});
 
 app.post('/userText', async(req, res) => {
     const getAnalysis = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.url}&lang=en`);
@@ -43,5 +40,4 @@ app.post('/userText', async(req, res) => {
       }catch (error) {
       console.log("error", error);
       }
-    }
-);
+});
