@@ -16,14 +16,12 @@ function handleSubmit(event) {
         })
             .then(res => res.json())
             .then(function (res) {
-                document.getElementById('results').innerHTML = res.message
-                document.getElementById('error').innerHTML = 'error' + res.error;
-                document.getElementById('model').innerHTML = 'model' + res.model;
-                document.getElementById('score').innerHTML = 'score' + res.score;
-                document.getElementById('agreement').innerHTML = 'agreement' + res.agreement;
-                document.getElementById('subject').innerHTML = 'subject' + res.subject;
-                document.getElementById('confidence').innerHTML = 'confidence' + res.confidence;
-                document.getElementById('irony').innerHTML = 'irony' + res.irony;
+                document.getElementById('model').innerHTML = 'Model: ' + res.model;
+                document.getElementById('score_tag').innerHTML = 'Score: ' + res.score_tag;
+                document.getElementById('agreement').innerHTML = 'Agreement: ' + res.agreement;
+                document.getElementById('subjectivity').innerHTML = 'Subjectivity: ' + res.subjectivity;
+                document.getElementById('confidence').innerHTML = 'Confidence: ' + res.confidence;
+                document.getElementById('irony').innerHTML = 'Irony: ' + res.irony;
             })
     };
 }

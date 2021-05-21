@@ -12,9 +12,18 @@ main {
 }
 
 section {
-    justify-self: center;
     max-width: 800px;
-    margin: 50px auto;
     font-family: 'Lato', sans-serif;
     font-size: 1em;
+    margin: 50px;
+    color: #343434;
 }
+
+#results {
+    font-family: 'Parisienne', cursive;
+    font-size: 2em;
+    padding: 10px;
+    color: #ff0062;
+}
+
+
