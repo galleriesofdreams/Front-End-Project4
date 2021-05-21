@@ -6,7 +6,7 @@ function handleSubmit(event) {
         formText
     }
     if (Client.checkForName(formText)) {
-        fetch('http://localhost:8081/addData', {
+        fetch('http://localhost:8081/userText', {
             method: 'POST',
             credentials: 'same-origin',
             headers: {

@@ -5,7 +5,6 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
-const baseURL = 'https://api.meaningcloud.com/sentiment-2.1';
 
 dotenv.config();
 const api_key = process.env.API_KEY;
@@ -32,7 +31,8 @@ app.get('/test', function (req, res) {
 });
 
 app.post('/userText', async(req, res) => {
-    const getAnalysis = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.url}&lang=en`);
+    console.log('req.body ===+>', req.body)
+    const res = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.formText}&lang=en`);
     try {
         const data = await res.json();
         console.log(getAnalysis, data);
