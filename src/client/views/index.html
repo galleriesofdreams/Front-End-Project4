@@ -35,6 +35,12 @@
         <footer>
             <p>developed using Meaning Cloud API, Udacity Project by Patrizia Rohr</p>
         </footer>
-
+        <script>
+            if ('serviceWorker' in navigator) {
+                window.addEventListener('load',()=> {
+                    navigator.serviceWorker.register('/service-worker.js');
+                });
+            }
+        </script>
     </body>
 </html>
