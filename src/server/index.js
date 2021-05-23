@@ -30,7 +30,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 });
 
-app.post('/userText', async(req, res) => {
+app.post('/inputText', async(req, res) => {
     console.log('req.body ===+>', req.body)
     const response = await fetch(`https://api.meaningcloud.com/sentiment-2.1?key=${api_key}&url=${req.body.formText}&lang=en`);
     try {
