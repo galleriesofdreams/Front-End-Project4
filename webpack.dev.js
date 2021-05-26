@@ -30,7 +30,6 @@ module.exports = {
         ]
     },
     plugins: [
-        new WorkboxPlugin.GenerateSW(),
         new HtmlWebPackPlugin({
             template: "./src/client/views/index.html",
             filename: "./index.html",
@@ -40,6 +39,7 @@ module.exports = {
             verbose: true,
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
-        })
+        }),
+        new WorkboxPlugin.GenerateSW()
     ]
 }
