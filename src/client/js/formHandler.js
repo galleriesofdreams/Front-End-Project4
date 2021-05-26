@@ -6,7 +6,7 @@ function handleSubmit(event) {
         formText
     }
     if (Client.checkForName(formText)) {
-        fetch('http://localhost:8081/inputText', {
+        fetch('http://localhost:8081/userText', {
             method: 'POST',
             credentials: 'same-origin',
             headers: {
@@ -23,6 +23,9 @@ function handleSubmit(event) {
                 document.getElementById('confidence').innerHTML = 'Confidence: ' + res.confidence;
                 document.getElementById('irony').innerHTML = 'Irony: ' + res.irony;
             })
+    } else {
+        alert ('Please enter a valid URL')
     };
 }
+
 export { handleSubmit }
